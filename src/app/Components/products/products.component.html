@@ -10,11 +10,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let product of prdList">
-      <td>{{product.name}}</td>
-      <td>{{product.price}}</td>
-      <td>{{product.quantity}}</td>
-      <td><img src="{{product.imgURL}}"></td>
-      <td>{{product.categoryId}}</td>
+      <!-- safe navigation operator -->
+      <td>{{product?.name}}</td>
+      <td>{{product?.price}}</td>
+      <td>{{product?.quantity}}</td>
+      <td><img src="{{product?.imgURL}}"></td>
+      <td>{{product?.categoryId}}</td>
     </tr>
   </tbody>
 </table>
