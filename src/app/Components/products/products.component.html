@@ -6,6 +6,8 @@
       <th>quantity</th>
       <th>img URL</th>
       <th>category</th>
+      <th>Items Selected</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +18,15 @@
       <td>{{product?.quantity}}</td>
       <td><img src="{{product?.imgURL}}"></td>
       <td>{{product?.categoryId}}</td>
+      <!-- Template variable -->
+      <td><input #itemsCount type="number" class="form-control w-50"></td>
+      <td><button type="button" class="btn btn-primary" (click)="BuyItem(product.price, itemsCount.value)"> Buy
+        </button></td>
     </tr>
   </tbody>
 </table>
+<hr>
+
+<h3>
+  Order Total Price : {{orderTotalPrice}}
+</h3>
