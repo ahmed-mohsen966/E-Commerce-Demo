@@ -1,1 +1,14 @@
-<p>home works!</p>
+<!-- InterPolation -->
+<h1>{{storeInfo.name}}</h1>
+<!-- <img src="{{storeInfo.imgURL}}"> -->
+
+<!-- Property Binding -->
+<img [src]="storeInfo.imgURL" alt="" class="img-fluid m-1">
+
+<h3> Branches</h3>
+<!-- Structural Directives -->
+<ul>
+  <li *ngFor="let item of storeInfo.branches">
+    {{item}}
+  </li>
+</ul>
