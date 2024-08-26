@@ -1,3 +1,14 @@
+<div class="mb-3">
+  <label for="prdCat" class="form-control">Category</label>
+  <select class="form-control" id="prdCat" [(ngModel)]="selectdCatId" name="Category">
+    <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
+  </select>
+</div>
+
+<div class="text-secondary">
+  {{selectdCatId}}
+</div>
+<button type="button" class="btn btn-danger" (click)="ChangeCat()">Change Category</button>
 <table class="table">
   <thead>
     <tr>

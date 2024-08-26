@@ -9,7 +9,7 @@ import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { OrderComponent } from './Components/order/order.component';
 import { ProductsComponent } from './Components/products/products.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,11 +18,12 @@ import { ProductsComponent } from './Components/products/products.component';
     SidebarComponent,
     HomeComponent,
     OrderComponent,
-    ProductsComponent
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()
