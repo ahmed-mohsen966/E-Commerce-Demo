@@ -36,7 +36,7 @@
         <ng-template #HighValue>High {{product.price}}</ng-template>
       </td>
       <td [class.bg-danger]="product.quantity <= 2">{{product?.quantity}}</td>
-      <td><img src="{{product?.imgURL}}"></td>
+      <td><img LightBox highLightColor="" src="{{product?.imgURL}}"></td>
       <td>{{product?.categoryId}}</td>
       <!-- Template variable -->
       <td><input #itemsCount type="number" class="form-control w-50"></td>

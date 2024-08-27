@@ -10,6 +10,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { OrderComponent } from './Components/order/order.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { FormsModule } from '@angular/forms';
+import { LightBoxDirective } from './Directives/light-box.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     OrderComponent,
     ProductsComponent,
+    LightBoxDirective,
   ],
   imports: [
     BrowserModule,
