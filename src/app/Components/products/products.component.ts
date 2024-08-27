@@ -14,9 +14,9 @@ catList: ICategory[];
 selectdCatId:number = 0;
 constructor(){
   this.prdList =[
-    {id:100,name:'Dell' , price: 20000, quantity:1,imgURL: "https://fakeimg.pl/200x100" , categoryId:1},
+    {id:100,name:'Dell' , price: 5000, quantity:1,imgURL: "https://fakeimg.pl/200x100" , categoryId:1},
     {id:100,name:'Lenovo' , price: 25000, quantity:5,imgURL: "https://fakeimg.pl/200x100" , categoryId:2},
-    {id:100,name:'Mac' , price: 30000, quantity:5,imgURL: "https://fakeimg.pl/200x100" , categoryId:3}
+    {id:100,name:'Mac' , price: 10000, quantity:5,imgURL: "https://fakeimg.pl/200x100" , categoryId:3}
   ];
 
   this.catList = [
