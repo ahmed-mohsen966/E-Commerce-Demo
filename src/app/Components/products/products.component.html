@@ -31,9 +31,9 @@
       <td>
         <!-- ng template use cases -->
         <div *ngIf="product.price <= 10000 else HighValue">
-          {{product.price}}
+          {{product.price | USDtoEGP: 20 | currency: 'EGP' : 'code'}}
         </div>
-        <ng-template #HighValue>High {{product.price}}</ng-template>
+        <ng-template #HighValue>High {{product.price | USDtoEGP:10 | currency: 'EGP' : 'code'}}</ng-template>
       </td>
       <td [class.bg-danger]="product.quantity <= 2">{{product?.quantity}}</td>
       <td><img LightBox highLightColor="" src="{{product?.imgURL}}"></td>
