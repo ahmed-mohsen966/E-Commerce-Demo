@@ -24,7 +24,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of prdList">
+    <tr *ngFor="let product of prdList"
+      [ngClass]="{'table-warning':product.quantity <= 3, 'table-danger':product.quantity ==1}">
       <!-- safe navigation operator -->
       <td>{{product?.name}}</td>
       <td>
