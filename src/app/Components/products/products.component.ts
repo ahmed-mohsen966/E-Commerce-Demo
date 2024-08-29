@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ɵUSE_RUNTIME_DEPS_TRACKER_FOR_JIT } from '@angular/core';
 import { IProducts } from '../../Models/iproducts';
+import { StoreData } from '../../ViewModels/store-data';
 
 @Component({
   selector: 'app-products',
@@ -11,8 +12,11 @@ export class ProductsComponent implements OnChanges, OnInit {
   prdList: IProducts[];
   filteredProducts: IProducts[] = [];
   @Input() CatId: number = 0;
-
+  @Output() onTotalPricechanged: EventEmitter<number>;
+  @Output() onBuyItem: EventEmitter<StoreData>;
   constructor() {
+    this.onTotalPricechanged = new EventEmitter<number>();
+    this.onBuyItem = new EventEmitter<StoreData>();
     this.prdList = [
       { id: 100, name: 'Dell', price: 5000, quantity: 1, imgURL: "https://fakeimg.pl/200x100", categoryId: 1000 },
       { id: 100, name: 'Lenovo', price: 25000, quantity: 2, imgURL: "https://fakeimg.pl/200x100", categoryId: 2000 },
@@ -30,18 +34,22 @@ export class ProductsComponent implements OnChanges, OnInit {
     this.filteredProducts = this.prdList;
   }
   ngOnChanges(): void {
-    debugger
     this.ChangeCatFilter();
   }
 
-  BuyItem(ProductPrice: number, PrdCount: any) {
+  BuyItem(id: number, PrdCount: any) {
     let itemsCount: number;
     itemsCount = Number(PrdCount);
-    this.orderTotalPrice = itemsCount * ProductPrice;
+    let product: any = this.prdList.find(prd => prd.id == id);
+    this.orderTotalPrice += itemsCount * (product != undefined ? (product as IProducts).price : 0);
+    this.onTotalPricechanged.emit(product);
+    let item: StoreData = { name: product.name, Price: product.price, quantity: PrdCount, categoryId: product.categoryId }
+    this.onBuyItem.emit(item);
 
   }
 
   private ChangeCatFilter() {
+    this.orderTotalPrice = 0;
     if (this.CatId == 0)
       this.filteredProducts = this.prdList;
     else

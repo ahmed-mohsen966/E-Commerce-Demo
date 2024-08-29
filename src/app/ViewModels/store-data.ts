@@ -1,7 +1,9 @@
 export class StoreData {
-  constructor(public name:string
-    ,public imgURL:string
-    ,public branches:string[]
+  constructor(
+     public name:string
+    ,public Price:number
+    ,public quantity:number
+    ,public categoryId: number
   ){
 
   }

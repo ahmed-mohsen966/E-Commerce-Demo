@@ -9,8 +9,30 @@
 
 <hr>
 <div class="bg-warning">
-  <app-products [CatId]="selectdCatId"></app-products>
+  <app-products [CatId]="selectdCatId" (onTotalPricechanged)="onTotalPriceChanged($event)"
+    (onBuyItem)="onBuyItem($event)"></app-products>
 
 </div>
 
-<h3>Order Total Price: {{orderTotalPrice}}</h3>
+<div class="bg-primary col-4" [hidden]="buyItems.length == 0" >
+  Items added to cart:
+  <table class="table">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>price</th>
+        <th>category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prd of buyItems">
+        <td>{{prd.name}}</td>
+        <td>{{prd.Price}}</td>
+        <td>{{prd.categoryId}}</td>
+        <td>{{prd.quantity}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Order Total Price: {{orderTotalPrice | USDtoEGP | currency:'EGP' :'code'}}</h3>
