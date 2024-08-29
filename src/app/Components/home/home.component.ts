@@ -7,10 +7,10 @@ import { StoreData } from '../../ViewModels/store-data';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  storeInfo : StoreData;
+  storeInfo: StoreData;
 
-  constructor(){
-    this.storeInfo = new StoreData("amazon store" , "https://picsum.photos/200/300",["Alex", "Giza","Maadi" , "Gouna"]);
+  constructor() {
+    this.storeInfo = new StoreData("amazon store", "https://picsum.photos/200/300", ["Alex", "Giza", "Maadi", "Gouna"]);
   }
 
 }

@@ -1,1 +1,16 @@
-<p>order works!</p>
+<h2>Place YOur Order</h2>
+<div class="mb-3">
+  <label for="prdCat" class="form-control">Category</label>
+  <select class="form-control" id="prdCat" [(ngModel)]="selectdCatId" name="Category">
+    <option value="0" selected>All</option>
+    <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
+  </select>
+</div>
+
+<hr>
+<div class="bg-warning">
+  <app-products [CatId]="selectdCatId"></app-products>
+
+</div>
+
+<h3>Order Total Price: {{orderTotalPrice}}</h3>

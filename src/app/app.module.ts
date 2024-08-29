@@ -28,7 +28,7 @@ import { USDtoEGPPipe } from './Pipes/usdto-egp.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule
-  ],
+    ],
   providers: [
     provideClientHydration()
   ],

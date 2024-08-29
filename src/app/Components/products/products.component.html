@@ -1,13 +1,6 @@
-<div class="mb-3">
-  <label for="prdCat" class="form-control">Category</label>
-  <select class="form-control" id="prdCat" [(ngModel)]="selectdCatId" (change)="ChangeCatFilter()" name="Category">
-    <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
-  </select>
-</div>
-
-<div class="text-secondary">
+<!-- <div class="text-secondary">
   {{selectdCatId}}
-</div>
+</div> -->
 <!-- <button type="button" class="btn btn-danger" (click)="ChangeCat()">Change Category</button> -->
 <!-- <button type="button" class="btn btn-danger" (click)="CgetSelect($event)">Change Category</button> -->
 <!-- in ts event.target.value -->
@@ -25,15 +18,16 @@
   </thead>
   <tbody>
     <tr *ngFor="let product of filteredProducts"
-      [ngClass]="{'table-warning':product.quantity <= 3, 'table-danger':product.quantity ==1}">
+    [ngClass]="{'table-warning':product.quantity <= 3, 'table-danger':product.quantity ==1}"
+    >
       <!-- safe navigation operator -->
       <td>{{product?.name}}</td>
       <td>
         <!-- ng template use cases -->
         <div *ngIf="product.price <= 10000 else HighValue">
-          {{product.price | USDtoEGP: 20 | currency: 'EGP' : 'code'}}
+          {{product.price | USDtoEGP | currency: 'EGP' : 'code'}}
         </div>
-        <ng-template #HighValue>High {{product.price | USDtoEGP:10 | currency: 'EGP' : 'code'}}</ng-template>
+        <ng-template #HighValue>High {{product.price | USDtoEGP| currency: 'EGP' : 'code'}}</ng-template>
       </td>
       <td [class.bg-danger]="product.quantity <= 2">{{product?.quantity}}</td>
       <td><img LightBox highLightColor="" src="{{product?.imgURL}}"></td>
@@ -47,6 +41,7 @@
 </table>
 <hr>
 
-<h3>
-  Order Total Price : {{orderTotalPrice}}
+<h3 class="text-danger">
+  [to be removed]
+  Order Total Price : {{orderTotalPrice | USDtoEGP | currency:'EGP' : 'code'}}
 </h3>
