@@ -13,7 +13,7 @@
       <th>img URL</th>
       <th>category</th>
       <th>Items Selected</th>
-      <th></th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -33,8 +33,12 @@
       <td>{{product?.categoryId}}</td>
       <!-- Template variable -->
       <td><input #itemsCount type="number" class="form-control w-50"></td>
-      <td><button type="button" class="btn btn-primary" (click)="BuyItem(product.id, itemsCount.value)"> Buy
-        </button></td>
+      <td>
+        <button type="button" class="btn btn-info" (click)="view(product.id)">View</button>
+        <a class="btn btn-info" role="button" [routerLink]="['/ProductDetails' , product.id]">details</a>
+        <button type="button" class="btn btn-primary" (click)="BuyItem(product.id, itemsCount.value)"> Buy
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

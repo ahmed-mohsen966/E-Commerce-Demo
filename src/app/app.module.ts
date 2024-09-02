@@ -15,6 +15,7 @@ import { USDtoEGPPipe } from './Pipes/usdto-egp.pipe';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { UserLoginComponent } from './Components/UserLogin/UserLogin.component';
 import { MainLayoutComponent } from './Components/MainLayout/MainLayout.component';
+import { ProductDetailsComponent } from './Components/ProductDetails/ProductDetails.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,13 +29,14 @@ import { MainLayoutComponent } from './Components/MainLayout/MainLayout.componen
     USDtoEGPPipe,
     NotFoundComponent,
     UserLoginComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
-    ],
+  ],
   providers: [
     provideClientHydration()
   ],

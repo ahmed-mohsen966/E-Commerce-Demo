@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ɵUSE_RUNTIM
 import { IProducts } from '../../Models/iproducts';
 import { StoreData } from '../../ViewModels/store-data';
 import { StaticProductsService } from '../../Services/static-products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -15,7 +16,9 @@ export class ProductsComponent implements OnChanges, OnInit {
   @Input() CatId: number = 0;
   @Output() onTotalPricechanged: EventEmitter<number>;
   @Output() onBuyItem: EventEmitter<StoreData>;
-  constructor(private productService: StaticProductsService ) {
+  constructor(private productService: StaticProductsService
+    , private route: Router
+   ) {
     this.onTotalPricechanged = new EventEmitter<number>();
     this.onBuyItem = new EventEmitter<StoreData>();
 
@@ -40,6 +43,9 @@ export class ProductsComponent implements OnChanges, OnInit {
 
   }
 
+  view(id:number){
+    this.route.navigate(['ProductDetails' , id]);
+  }
   private ChangeCatFilter() {
     this.orderTotalPrice = 0;
     if (this.CatId == 0)
