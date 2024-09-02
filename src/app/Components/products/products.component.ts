@@ -21,7 +21,8 @@ export class ProductsComponent implements OnChanges, OnInit {
 
   }
   ngOnInit(): void {
-    this.filteredProducts = this.prdList;
+    this.filteredProducts = this.productService.GetAllProducts();
+
   }
   ngOnChanges(): void {
     //this.ChangeCatFilter();
