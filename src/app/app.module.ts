@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { LightBoxDirective } from './Directives/light-box.directive';
 import { USDtoEGPPipe } from './Pipes/usdto-egp.pipe';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { UserLoginComponent } from './Components/UserLogin/UserLogin.component';
+import { MainLayoutComponent } from './Components/MainLayout/MainLayout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
     LightBoxDirective,
     USDtoEGPPipe,
     NotFoundComponent,
+    UserLoginComponent,
+    MainLayoutComponent
   ],
   imports: [
     BrowserModule,
