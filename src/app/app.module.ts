@@ -12,6 +12,7 @@ import { ProductsComponent } from './Components/products/products.component';
 import { FormsModule } from '@angular/forms';
 import { LightBoxDirective } from './Directives/light-box.directive';
 import { USDtoEGPPipe } from './Pipes/usdto-egp.pipe';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { USDtoEGPPipe } from './Pipes/usdto-egp.pipe';
     ProductsComponent,
     LightBoxDirective,
     USDtoEGPPipe,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
