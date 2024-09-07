@@ -1,7 +1,7 @@
 <p>
   ProductDetails works!
 </p>
-<div class="card" style="width: 30%;">
+<div class="card" style="width: 50%;">
   <img [src]="product?.imgURL" alt="product image">
   <div class="card-body">
     <h5 class="card-title">{{product?.name}}</h5>
@@ -17,7 +17,11 @@
   <div class="card-footer d-flex justify-content-center flex-column">
     <a class="btn btn-info mb-1 d-inline" role="button" [routerLink]="['/Products']">Back To Products</a>
     <a class="btn btn-info mb-1 d-inline" role="button" [routerLink]="['/Home']">Back To Home</a>
-    <button class="btn btn-info mb-1 d-inline" role="button" (click)="Back()">Back</button>
-
+    <!-- <button class="btn btn-info mb-1 d-inline" role="button" (click)="Back()">Back</button> -->
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" [disabled]="prdId == productIds[0]" class="btn btn-primary m-1" (click)="Previous()">Previous</button>
+      <button type="button" class="btn btn-primary m-1" (click)="Back()">Back</button>
+      <button type="button" [disabled]="prdId == productIds[productIds.length-1]" class="btn btn-primary m-1" (click)="Next()">Next</button>
+    </div>
   </div>
 </div>

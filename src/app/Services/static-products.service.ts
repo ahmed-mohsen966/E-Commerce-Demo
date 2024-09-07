@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, numberAttribute } from '@angular/core';
 import { IProducts } from '../Models/iproducts';
 
 @Injectable({
@@ -6,7 +6,6 @@ import { IProducts } from '../Models/iproducts';
 })
 export class StaticProductsService {
   private prdList: IProducts[];
-
   constructor() {
     this.prdList = [
       { id: 100, name: 'Dell', price: 5000, quantity: 1, imgURL: "https://fakeimg.pl/200x100", categoryId: 1000 },
@@ -44,5 +43,10 @@ export class StaticProductsService {
 
   Create(prd: IProducts): void {
     this.prdList.push(prd);
+  }
+
+  getPrdIds():number []{
+    let prdIds: number[] = this.prdList.map(prd => prd.id);
+    return prdIds;
   }
 }
