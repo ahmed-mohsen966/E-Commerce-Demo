@@ -1,3 +1,23 @@
 <p>
   ProductDetails works!
 </p>
+<div class="card" style="width: 30%;">
+  <img [src]="product?.imgURL" alt="product image">
+  <div class="card-body">
+    <h5 class="card-title">{{product?.name}}</h5>
+    <div class="card-text">
+      <div>
+        Quantity: {{product?.quantity}}
+      </div>
+      <div>
+        Price:  {{product?.price}}
+      </div>
+    </div>
+  </div>
+  <div class="card-footer d-flex justify-content-center flex-column">
+    <a class="btn btn-info mb-1 d-inline" role="button" [routerLink]="['/Products']">Back To Products</a>
+    <a class="btn btn-info mb-1 d-inline" role="button" [routerLink]="['/Home']">Back To Home</a>
+    <button class="btn btn-info mb-1 d-inline" role="button" (click)="Back()">Back</button>
+
+  </div>
+</div>
