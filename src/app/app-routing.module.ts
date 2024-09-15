@@ -7,6 +7,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { UserLoginComponent } from './Components/UserLogin/UserLogin.component';
 import { MainLayoutComponent } from './Components/MainLayout/MainLayout.component';
 import { ProductDetailsComponent } from './Components/ProductDetails/ProductDetails.component';
+import { authGuard } from './Guards/auth.guard';
 
 const routes: Routes = [ // note: first match wins
   {
@@ -14,7 +15,7 @@ const routes: Routes = [ // note: first match wins
       { path: '', redirectTo: '/Home', pathMatch: 'full' }, // Default Path
       { path: 'Home', component: HomeComponent },
       { path: 'Products', component: ProductsComponent },
-      { path: 'Order', component: OrderComponent },
+      { path: 'Order', component: OrderComponent ,canActivate: [authGuard]},
       { path: 'ProductDetails/:pid', component: ProductDetailsComponent }
     ]
   },
