@@ -1,5 +1,5 @@
 <app-header></app-header>
 
-<p>
-  UserLogin works!
-</p>
+<button type="button" [disabled]="isUserLogged" class="btn btn-success" (click)="Login()">Login</button>
+<button type="button" [disabled]="!isUserLogged" class="btn btn-danger" (click)="Logout()">Logout</button>
+

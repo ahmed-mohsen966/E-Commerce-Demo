@@ -19,6 +19,7 @@ const routes: Routes = [ // note: first match wins
     ]
   },
   { path: 'Login', component: UserLoginComponent },
+  { path: 'Logout', component: UserLoginComponent },
   { path: '**', component: NotFoundComponent } // Wild Card Path
 ];
 
