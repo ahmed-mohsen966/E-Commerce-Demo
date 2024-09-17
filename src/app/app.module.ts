@@ -16,7 +16,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { UserLoginComponent } from './Components/UserLogin/UserLogin.component';
 import { MainLayoutComponent } from './Components/MainLayout/MainLayout.component';
 import { ProductDetailsComponent } from './Components/ProductDetails/ProductDetails.component';
-import { HttpClientModule  } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,10 +37,10 @@ import { HttpClientModule  } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule 
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(),
   ],
   bootstrap: [AppComponent] //starting component
 })

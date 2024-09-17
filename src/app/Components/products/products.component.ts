@@ -3,6 +3,7 @@ import { IProducts } from '../../Models/iproducts';
 import { StoreData } from '../../ViewModels/store-data';
 import { StaticProductsService } from '../../Services/static-products.service';
 import { Router } from '@angular/router';
+import { ProductsService } from '../../Services/products.service';
 
 @Component({
   selector: 'app-products',
@@ -17,40 +18,48 @@ export class ProductsComponent implements OnChanges, OnInit {
   @Output() onTotalPricechanged: EventEmitter<number>;
   @Output() onBuyItem: EventEmitter<StoreData>;
   constructor(private productService: StaticProductsService
+    , private ProductsService: ProductsService
     , private route: Router
-   ) {
+  ) {
     this.onTotalPricechanged = new EventEmitter<number>();
     this.onBuyItem = new EventEmitter<StoreData>();
 
   }
   ngOnInit(): void {
-    this.filteredProducts = this.productService.GetAllProducts();
+    //this.filteredProducts = this.productService.GetAllProducts();
+    this.ProductsService.GetAll().subscribe(products => {
+      this.filteredProducts = products
+      console.log(products);
+    })
 
   }
   ngOnChanges(): void {
     //this.ChangeCatFilter();
-    this.filteredProducts = this.productService.GetProductByCatId(this.CatId);
+    //this.filteredProducts = this.productService.GetProductByCatId(this.CatId);
+    this.ProductsService.GetByCatId(this.CatId).subscribe(products => {
+      this.filteredProducts = products
+    })
   }
 
   BuyItem(id: number, PrdCount: any) {
     let itemsCount: number;
     itemsCount = Number(PrdCount);
-    let product: any = this.prdList.find(prd => prd.id == id);
-    this.orderTotalPrice += itemsCount * (product != undefined ? (product as IProducts).price : 0);
+    let product: any = this.prdList.find(prd => prd.Id == id);
+    this.orderTotalPrice += itemsCount * (product != undefined ? (product as IProducts).Price : 0);
     this.onTotalPricechanged.emit(product);
     let item: StoreData = { name: product.name, Price: product.price, quantity: PrdCount, categoryId: product.categoryId }
     this.onBuyItem.emit(item);
 
   }
 
-  view(id:number){
-    this.route.navigate(['ProductDetails' , id]);
+  view(id: number) {
+    this.route.navigate(['ProductDetails', id]);
   }
   private ChangeCatFilter() {
     this.orderTotalPrice = 0;
     if (this.CatId == 0)
       this.filteredProducts = this.prdList;
     else
-      this.filteredProducts = this.prdList.filter(prd => prd.categoryId == this.CatId);
+      this.filteredProducts = this.prdList.filter(prd => prd.CategoryID == this.CatId);
   }
 }

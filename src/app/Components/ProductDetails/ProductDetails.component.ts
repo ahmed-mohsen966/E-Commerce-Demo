@@ -4,6 +4,7 @@ import { IProducts } from '../../Models/iproducts';
 import { StaticProductsService } from '../../Services/static-products.service';
 import { Location } from '@angular/common';
 import { tick } from '@angular/core/testing';
+import { ProductsService } from '../../Services/products.service';
 
 @Component({
   selector: 'app-ProductDetails',
@@ -15,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   product: IProducts | null = null;
   productIds: number[] = [];
   constructor(private activatedRoute: ActivatedRoute, private staticProductService: StaticProductsService
+    , private productService: ProductsService
     , private location: Location
     , private route: Router
   ) {

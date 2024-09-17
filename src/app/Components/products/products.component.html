@@ -18,25 +18,25 @@
   </thead>
   <tbody>
     <tr *ngFor="let product of filteredProducts"
-      [ngClass]="{'table-warning':product.quantity <= 3, 'table-danger':product.quantity ==1}">
+      [ngClass]="{'table-warning':product.Quantity <= 3, 'table-danger':product.Quantity ==1}">
       <!-- safe navigation operator -->
-      <td>{{product?.name}}</td>
+      <td>{{product?.Name}}</td>
       <td>
         <!-- ng template use cases -->
-        <div *ngIf="product.price <= 10000 else HighValue">
-          {{product.price | USDtoEGP | currency: 'EGP' : 'code'}}
+        <div *ngIf="product.Price <= 10000 else HighValue">
+          {{product.Price | USDtoEGP | currency: 'EGP' : 'code'}}
         </div>
-        <ng-template #HighValue>High {{product.price | USDtoEGP| currency: 'EGP' : 'code'}}</ng-template>
+        <ng-template #HighValue>High {{product.Price | USDtoEGP| currency: 'EGP' : 'code'}}</ng-template>
       </td>
-      <td [class.bg-danger]="product.quantity <= 2">{{product?.quantity}}</td>
-      <td><img LightBox highLightColor="" src="{{product?.imgURL}}"></td>
-      <td>{{product?.categoryId}}</td>
+      <td [class.bg-danger]="product.Quantity <= 2">{{product?.Quantity}}</td>
+      <td><img LightBox highLightColor="" src="{{product?.ImgURL}}"></td>
+      <td>{{product?.CategoryID}}</td>
       <!-- Template variable -->
       <td><input #itemsCount type="number" class="form-control w-50"></td>
       <td>
-        <button type="button" class="btn btn-info" (click)="view(product.id)">View</button>
-        <a class="btn btn-info" role="button" [routerLink]="['/ProductDetails' , product.id]">details</a>
-        <button type="button" class="btn btn-primary" (click)="BuyItem(product.id, itemsCount.value)"> Buy
+        <button type="button" class="btn btn-info" (click)="view(product.Id)">View</button>
+        <a class="btn btn-info" role="button" [routerLink]="['/ProductDetails' , product.Id]">details</a>
+        <button type="button" class="btn btn-primary" (click)="BuyItem(product.Id, itemsCount.value)"> Buy
         </button>
       </td>
     </tr>
