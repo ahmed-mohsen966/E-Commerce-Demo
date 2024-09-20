@@ -34,9 +34,9 @@
       <!-- Template variable -->
       <td><input #itemsCount type="number" class="form-control w-50"></td>
       <td>
-        <button type="button" class="btn btn-info" (click)="view(product.Id)">View</button>
-        <a class="btn btn-info" role="button" [routerLink]="['/ProductDetails' , product.Id]">details</a>
-        <button type="button" class="btn btn-primary" (click)="BuyItem(product.Id, itemsCount.value)"> Buy
+        <button type="button" class="btn btn-info" (click)="view(product.id)">View</button>
+        <a class="btn btn-info" role="button" [routerLink]="['/ProductDetails' , product.id]">details</a>
+        <button type="button" class="btn btn-primary" (click)="BuyItem(product.id, itemsCount.value)"> Buy
         </button>
       </td>
     </tr>

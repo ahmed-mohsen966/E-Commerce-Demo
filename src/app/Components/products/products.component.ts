@@ -4,6 +4,7 @@ import { StoreData } from '../../ViewModels/store-data';
 import { StaticProductsService } from '../../Services/static-products.service';
 import { Router } from '@angular/router';
 import { ProductsService } from '../../Services/products.service';
+import { debug } from 'console';
 
 @Component({
   selector: 'app-products',
@@ -44,7 +45,7 @@ export class ProductsComponent implements OnChanges, OnInit {
   BuyItem(id: number, PrdCount: any) {
     let itemsCount: number;
     itemsCount = Number(PrdCount);
-    let product: any = this.prdList.find(prd => prd.Id == id);
+    let product: any = this.prdList.find(prd => prd.id == id);
     this.orderTotalPrice += itemsCount * (product != undefined ? (product as IProducts).Price : 0);
     this.onTotalPricechanged.emit(product);
     let item: StoreData = { name: product.name, Price: product.price, quantity: PrdCount, categoryId: product.categoryId }
@@ -53,6 +54,7 @@ export class ProductsComponent implements OnChanges, OnInit {
   }
 
   view(id: number) {
+    debugger
     this.route.navigate(['ProductDetails', id]);
   }
   private ChangeCatFilter() {

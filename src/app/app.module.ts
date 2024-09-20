@@ -16,7 +16,8 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { UserLoginComponent } from './Components/UserLogin/UserLogin.component';
 import { MainLayoutComponent } from './Components/MainLayout/MainLayout.component';
 import { ProductDetailsComponent } from './Components/ProductDetails/ProductDetails.component';
-import { provideHttpClient } from '@angular/common/http'
+import { provideHttpClient } from '@angular/common/http';
+import { AddProductComponent } from './Components/add-product/add-product.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { provideHttpClient } from '@angular/common/http'
     NotFoundComponent,
     UserLoginComponent,
     MainLayoutComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
