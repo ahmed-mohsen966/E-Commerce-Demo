@@ -49,12 +49,19 @@
       "ImgURL": "https://picsum.photos/200"
     },
     {
-      "id": 7,
+      "id": "7",
       "Name": "Samsung thinpad X230",
       "Price": 500,
       "Quantity": 10,
       "CategoryID": 1,
       "ImgURL": "https://picsum.photos/300"
+    },
+    {
+      "id": "d673",
+      "Name": "iphone 15",
+      "Price": 15000,
+      "Quantity": 4,
+      "CategoryID": "4000"
     }
   ],
   "Categories": [

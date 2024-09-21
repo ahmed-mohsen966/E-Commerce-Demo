@@ -29,13 +29,13 @@ export class ProductsService {
   }
 
   Add(product: IProducts): Observable<IProducts> {
-    product = {
-      id: 40,
-      Name: 'iphone 15 pro',
-      Price: 9000,
-      Quantity: 90,
-      CategoryID: 3
-    }
+    // product = {
+    //   id: 40,
+    //   Name: 'iphone 15 pro',
+    //   Price: 9000,
+    //   Quantity: 90,
+    //   CategoryID: 3
+    // }
     return this.httpClient
       .post<IProducts>(`${environment.baseURL}/products`, JSON.stringify(product), this.httpOption)
       .pipe(

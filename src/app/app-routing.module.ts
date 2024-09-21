@@ -18,7 +18,7 @@ const routes: Routes = [ // note: first match wins
       { path: 'Products', component: ProductsComponent },
       { path: 'Order', component: OrderComponent, canActivate: [authGuard] },
       { path: 'ProductDetails/:pid([0-9]+))', component: ProductDetailsComponent },
-      { path: 'ProductsDetails/Add', component: AddProductComponent }
+      { path: 'Products/Add', component: AddProductComponent }
     ]
   },
   { path: 'Login', component: UserLoginComponent },

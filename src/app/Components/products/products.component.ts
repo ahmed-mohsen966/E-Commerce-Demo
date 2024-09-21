@@ -54,8 +54,11 @@ export class ProductsComponent implements OnChanges, OnInit {
   }
 
   view(id: number) {
-    debugger
     this.route.navigate(['ProductDetails', id]);
+  }
+
+  AddNewProduct() {
+    this.route.navigate(['Products/Add'])
   }
   private ChangeCatFilter() {
     this.orderTotalPrice = 0;
