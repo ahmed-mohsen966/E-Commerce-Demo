@@ -1,0 +1,63 @@
+<div class="container">
+
+  <form [formGroup]="userRegisterForm" class="m-3 mx-0 col-6">
+    <div class="mb-3">
+      <label for="fullName">Full name</label>
+      <input type="text" formControlName="fullName" class="form-control" id="fullName" name="fullName"
+        placeholder="full Name">
+    </div>
+    <div class="mb-3">
+      <label for="email">Email</label>
+      <input type="text" formControlName="email" class="form-control" id="email" name="email" placeholder="email">
+    </div>
+    <div class="mb-3">
+      <label for="phone">Phone</label>
+      <input type="text" formControlName="phone" class="form-control" id="phone" name="phone" placeholder="Phone No.">
+    </div>
+    <div formGroupName="address">
+      <div class="mb-3">
+        <label for="city">city</label>
+        <input type="text" formControlName="city" class="form-control" id="city" name="city" placeholder="city">
+      </div>
+      <div class="mb-3">
+        <div class="mb-3">
+          <label for="state">state</label>
+          <input type="text" formControlName="state" class="form-control" id="state" name="state" placeholder="state">
+        </div>
+        <label for="postalCode">postal Code</label>
+        <input type="number" formControlName="postalCode" class="form-control" id="postalCode" name="postalCode"
+          placeholder="postal Code">
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password">password</label>
+      <input type="text" formControlName="password" class="form-control" id="password" name="password"
+        placeholder="password">
+    </div>
+    <div class="mb-3">
+      <label for="confirmPassword<">confirm Password</label>
+      <input type="text" class="form-control" id="confirmPassword" name="confirmPassword"
+        placeholder="confirm Password">
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-success"> submit </button>
+    </div>
+  </form>
+
+  <div>
+    <button class="btn btn-outline-info" (click)="fillForm()">fill Form</button>
+  </div>
+  <div class="text-danger">
+    <h3>
+      to be removed: test
+    </h3>
+    <div>
+      {{userRegisterForm.value | json}}
+    </div>
+    <div>
+      {{fullName?.errors | json}}
+    </div>
+  </div>
+
+</div>

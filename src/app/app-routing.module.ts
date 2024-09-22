@@ -9,6 +9,7 @@ import { MainLayoutComponent } from './Components/MainLayout/MainLayout.componen
 import { ProductDetailsComponent } from './Components/ProductDetails/ProductDetails.component';
 import { authGuard } from './Guards/auth.guard';
 import { AddProductComponent } from './Components/add-product/add-product.component';
+import { UserRegisterComponent } from './Components/user-register/user-register.component';
 
 const routes: Routes = [ // note: first match wins
   {
@@ -18,7 +19,9 @@ const routes: Routes = [ // note: first match wins
       { path: 'Products', component: ProductsComponent },
       { path: 'Order', component: OrderComponent, canActivate: [authGuard] },
       { path: 'ProductDetails/:pid([0-9]+))', component: ProductDetailsComponent },
-      { path: 'Products/Add', component: AddProductComponent }
+      { path: 'Products/Add', component: AddProductComponent },
+      {path: 'Register', component: UserRegisterComponent},
+
     ]
   },
   { path: 'Login', component: UserLoginComponent },

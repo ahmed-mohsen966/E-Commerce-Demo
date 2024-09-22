@@ -18,11 +18,14 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/Order" routerLinkActive="active">Order</a>
         </li>
-        <li class="nav-item" >
+        <li class="nav-item">
           <a class="nav-link" [hidden]="isUserLogged" routerLink="/Login" routerLinkActive="active">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [hidden]="!isUserLogged" routerLink="/Logout" routerLinkActive="active">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [hidden]="isUserLogged" routerLink="/Register" routerLinkActive="active">Register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
