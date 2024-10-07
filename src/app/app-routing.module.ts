@@ -20,8 +20,11 @@ const routes: Routes = [ // note: first match wins
       { path: 'Order', component: OrderComponent, canActivate: [authGuard] },
       { path: 'ProductDetails/:pid([0-9]+))', component: ProductDetailsComponent },
       { path: 'Products/Add', component: AddProductComponent },
-      {path: 'Register', component: UserRegisterComponent},
-
+      { path: 'Register', component: UserRegisterComponent },
+      {
+        path: 'User',
+        loadChildren: () => import('./Components/user-register/user/user.module').then(m => m.UserModule)
+      },
     ]
   },
   { path: 'Login', component: UserLoginComponent },
